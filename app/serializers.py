@@ -17,11 +17,13 @@ class ContactSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class TeamMemberSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = TeamMember
         fields = '__all__'
 
 class PublicationSerializer(serializers.ModelSerializer):
+    team_memeber = TeamMemberSerializer(read_only=True)
     class Meta:
         model = Publication
         fields = '__all__'
